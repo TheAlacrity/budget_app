@@ -10,13 +10,10 @@ class Api::CategoryController < ApplicationController
       render json: []
   end
   def create
-    t.string "name"
-    t.decimal "budget", precision: 11, scale: 2
-    t.integer "user_id" 
     @category = Category.new(
                             name: params[:name],
                             budget: params[:budget],
-                            user_id: 1 # current_user.id
+                            user_id: current_user.id
                           )
     if @category.save
       render 'show.json.jbuilder'
