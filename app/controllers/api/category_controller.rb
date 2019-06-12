@@ -3,9 +3,7 @@ class Api::CategoryController < ApplicationController
   def index
     
   end
-
-
-
+  
   def create
     t.string "name"
     t.decimal "budget", precision: 11, scale: 2
