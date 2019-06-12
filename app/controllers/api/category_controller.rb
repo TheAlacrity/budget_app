@@ -3,12 +3,11 @@ class Api::CategoryController < ApplicationController
 
   def index
     if current_user
-      @catagories = current_user.catagories
+      @categories = current_user.categories
       render 'index.json.jbuilder'
     else
-      @catagories = Catagory.all
+      @categories = Category.all
       render json: []
-    
   end
 
 
@@ -16,46 +15,40 @@ class Api::CategoryController < ApplicationController
     t.string "name"
     t.decimal "budget", precision: 11, scale: 2
     t.integer "user_id" 
-    @catagory = Catagory.new(
+    @category = Category.new(
                             name: params[:name],
                             budget: params[:budget],
-                            user_id: current_user.id #1
+                            user_id: 1 # current_user.id
                           )
-    if @Catagory.save
+    if @category.save
       render 'show.json.jbuilder'
     else
-      render json: { errors: @Catagory.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: @category.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
-  # def show
-  #   @product = Catagory.find(params[:id])
-  #   render 'show.json.jbuilder'
-  # end
-
-  # def update
-  #   @product = Product.find(params[:id])
-  #   @product.name = params[:name] || @product.name
-  #   @product.price = params[:price] || @product.price
-  #   @product.description = params[:description] || @product.description
-  #   @product.material = params[:material] || @product.material
-  #   @product.in_stock = params[:in_stock] || @product.in_stock
-  #   @product.style = params[:style] || @product.style
-  #   @product.supplier_id = params[:supplier_id] || @product.supplier_id
-    
-
-  #   if @product.save
-  #     render 'show.json.jbuilder'
-  #   else 
-  #     render json: {message: @product.errors.full_messages }, status: :unprocessable_entity
-  #   end
+  def show
+    @category = Category.find(params[:id])
+    render 'show.json.jbuilder'
   end
 
-  # def destroy
-  #   @product = Product.find(params[:id])
-  #   @product.destroy
-  #   render json: {message: "Successfully destroyed products"}
-  # end
+  def update
+    @category = Category.find(params[:id])
+    @category.name = params[:name] || @category.name
+    @category.budget = params[:budget] || @category.budget
+    
+    if @category.save
+      render 'show.json.jbuilder'
+    else 
+      render json: {message: @category.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+    render json: {message: "Successfully destroyed products"}
+  end
 
 
 end
