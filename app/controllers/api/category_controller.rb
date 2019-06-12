@@ -1,5 +1,5 @@
 class Api::CategoryController < ApplicationController
-  before_action :authenticate_user, only: [:create, :update, :destroy]
+  before_action :authenticate_user
 
   def index
     if current_user
@@ -24,6 +24,7 @@ class Api::CategoryController < ApplicationController
       render 'show.json.jbuilder'
     else
       render json: { errors: @category.errors.full_messages }, status: :unprocessable_entity
+
     end
   end
 
@@ -49,6 +50,4 @@ class Api::CategoryController < ApplicationController
     @category.destroy
     render json: {message: "Successfully destroyed products"}
   end
-
-
 end
