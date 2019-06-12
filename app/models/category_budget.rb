@@ -1,2 +1,0 @@
-class CategoryBudget < ApplicationRecord
-end
