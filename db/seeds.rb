@@ -26,13 +26,13 @@ category_4_b = Category.create(name: "savings", category_budget: 200, user_id: u
 expense = Expense.new(name: "Fixed Expense", amount: category_1.category_budget, comment: "", user_id: user_1.id, category_id: category_3.id)
 expense.save
 
-expense = Expense.new(name: "Expense 1", amount: 30.99, comment: "", user_id: user_1.id, category_id: category_3.id)
+expense = Expense.new(name: "Family dinner", amount: 30.99, comment: "", user_id: user_1.id, category_id: category_3.id)
 expense.save
 
-expense = Expense.new(name: "Expense 2", amount: 25.00, comment: "", user_id: user_1.id, category_id: category_3.id)
+expense = Expense.new(name: "Dragonfruit", amount: 25.00, comment: "", user_id: user_1.id, category_id: category_3.id)
 expense.save
 
-expense = Expense.new(name: "Expense 3", amount: 9.13, comment: "", user_id: user_2.id, category_id: category_3.id)
+expense = Expense.new(name: "Bubbletea breakfast", amount: 9.13, comment: "", user_id: user_2.id, category_id: category_3.id)
 expense.save
 
 expense = Expense.new(name: "Expense 4", amount: 40.00, comment: "", user_id: user_1.id, category_id: category_3.id)
@@ -40,3 +40,4 @@ expense.save
 
 expense = Expense.new(name: "Expense 5", amount: 15.00, comment: "", user_id: user_2.id, category_id: category_2.id)
 expense.save
+
