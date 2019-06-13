@@ -1,9 +1,9 @@
 class Api::ExpensesController < ApplicationController
-   before_action :authenticate_user 
+   # before_action :authenticate_user 
 
   def index
-    
-    @expenses = current_user.expenses
+    # @expenses = current_user.expenses
+    @expenses = Expense.all
     render 'index.json.jbuilder'
   end
 

@@ -1,5 +1,5 @@
-class Api::CategoryController < ApplicationController
-  before_action :authenticate_user
+class Api::CategoriesController < ApplicationController
+  # before_action :authenticate_user
 
   def index
     if current_user
@@ -7,24 +7,24 @@ class Api::CategoryController < ApplicationController
       render 'index.json.jbuilder'
     else
       @categories = Category.all
-      render json: []
+      render 'index.json.jbuilder'
+      # render json: []
+    end
   end
 
-
   def create
-    t.string "name"
-    t.decimal "budget", precision: 11, scale: 2
-    t.integer "user_id" 
     @category = Category.new(
                             name: params[:name],
                             budget: params[:budget],
-                            user_id: 1 # current_user.id
+                            user_id: current_user.id
                           )
+    @expenses_total = Expense.find_by(category_id: @category.id)
+    @over if @category.budget > @expenses_total
+
     if @category.save
       render 'show.json.jbuilder'
     else
       render json: { errors: @category.errors.full_messages }, status: :unprocessable_entity
-
     end
   end
 
