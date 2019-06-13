@@ -1,4 +1,4 @@
-class Api::CategoryController < ApplicationController
+class Api::CategoriesController < ApplicationController
   before_action :authenticate_user
 
   def index
@@ -7,7 +7,9 @@ class Api::CategoryController < ApplicationController
       render 'index.json.jbuilder'
     else
       @categories = Category.all
-      render json: []
+      render 'index.json.jbuilder'
+      # render json: []
+    end
   end
 
 

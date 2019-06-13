@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   patch '/expenses/:id' => 'expenses#update'
   delete '/expenses/:id' => 'expenses#destroy'
 
-
   post "/users" => "users#create"
   post "/sessions" => "sessions#create"
 

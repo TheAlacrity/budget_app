@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   has_many :expenses
-  has_many :category
+  has_many :categories
 
   def expense_total
     expenses.total
