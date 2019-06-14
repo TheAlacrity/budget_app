@@ -1,19 +1,16 @@
-
 class Api::CategoriesController < ApplicationController
   before_action :authenticate_user
 
   def index
     if current_user
       @categories = current_user.categories
+
+      @total = current_user.expenses.all.total
       render 'index.json.jbuilder'
     else
-      @categories = Category.all
-
-      render 'index.json.jbuilder'
-      # render json: []
+      render json: []
     end
   end
-
 
   def create
     @category = Category.new(
@@ -25,7 +22,6 @@ class Api::CategoriesController < ApplicationController
       render 'show.json.jbuilder'
     else
       render json: { errors: @category.errors.full_messages }, status: :unprocessable_entity
-
     end
   end
 

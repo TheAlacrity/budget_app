@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   patch '/expenses/:id' => 'expenses#update'
   delete '/expenses/:id' => 'expenses#destroy'
 
+  get '/users'  => 'users#index' 
   post "/users" => "users#create"
+   
   post "/sessions" => "sessions#create"
 
   get '/categories' => 'categories#index'

@@ -2,9 +2,12 @@ class Api::ExpensesController < ApplicationController
    before_action :authenticate_user 
 
   def index
-    
-    @expenses = current_user.expenses
-    render 'index.json.jbuilder'
+    if current_user
+      @expenses = current_user.expenses
+      render 'index.json.jbuilder'
+    else 
+      render json: []
+    end
   end
 
   def create
