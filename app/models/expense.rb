@@ -6,4 +6,6 @@ class Expense < ApplicationRecord
   validates :amount, presence: true
 
   scope :total, -> { sum(:amount) }
+
+
 end
