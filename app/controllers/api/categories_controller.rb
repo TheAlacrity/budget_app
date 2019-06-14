@@ -4,8 +4,6 @@ class Api::CategoriesController < ApplicationController
   def index
     if current_user
       @categories = current_user.categories
-      @expense_total expense_total(@categories)
-
       render 'index.json.jbuilder'
     else
       render json: []

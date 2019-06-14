@@ -1,10 +1,18 @@
 json.id category.id
 json.name category.name
 json.category_budget category.category_budget
-json.user_id category.user_id
+json.category_total category.expenses_by_category_id(category.id).total
 
-json.ex @expense_total
-json.test @test
+if category.category_budget < category.expenses_by_category_id(category.id).total
+  over = true
+else
+  over = false
+end
+json.over over
+
+json.user_id category.user_id
+json.testing @cat_over
+
 
 json.expenses do
   json.array! category.expenses, partial: 'api/expenses/expense', as: :expense
