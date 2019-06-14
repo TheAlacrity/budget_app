@@ -4,6 +4,7 @@ class Api::CategoriesController < ApplicationController
   def index
     if current_user
       @categories = current_user.categories
+
       @total = current_user.expenses.all.total
       render 'index.json.jbuilder'
     else
@@ -17,8 +18,6 @@ class Api::CategoriesController < ApplicationController
                             budget: params[:budget],
                             user_id: current_user.id
                           )
-
-
     if @category.save
       render 'show.json.jbuilder'
     else
