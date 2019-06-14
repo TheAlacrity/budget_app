@@ -5,9 +5,15 @@ class Category < ApplicationRecord
   validates :category_budget, presence: true  
 
 
-  def expense_total(expenses)
+  def expense_total(categories)
     total = 0
-    expenses.do
+    categories.each do |category|
+      total += category.expense.amount
+    end
+    total
+
   end
+
+  scope :total, -> { sum(:amount) }
 
 end

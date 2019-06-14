@@ -15,7 +15,7 @@ class Api::ExpensesController < ApplicationController
                           name: params[:name],
                           amount: params[:amount],
                           comment: params[:comment],
-                          user_id: params[:user_id],
+                          user_id: current_user.id,
                           category_id: params[:category_id]
                           )
     if @expense.save
@@ -36,7 +36,6 @@ class Api::ExpensesController < ApplicationController
     @expense.name = params[:name] || @expense.name
     @expense.amount = params[:amount] || @expense.amount
     @expense.comment = params[:comment] || @expense.comment
-    @expense.user_id = params[:user_id] || @expense.user_id
     @expense.category_id = params[:category_id] || @expense.category_id
 
 
