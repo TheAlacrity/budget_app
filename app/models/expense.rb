@@ -7,5 +7,4 @@ class Expense < ApplicationRecord
 
   scope :total, -> { sum(:amount) }
 
-
 end
