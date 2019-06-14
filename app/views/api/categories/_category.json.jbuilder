@@ -12,7 +12,3 @@ json.user category.user.name
 # json.user do
 #   json.partial! category.user, partial: 'api/user', as: :user
 # end
-
-
-
-# user.expenses.all.total
