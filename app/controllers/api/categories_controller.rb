@@ -1,14 +1,13 @@
 class Api::CategoriesController < ApplicationController
-  # before_action :authenticate_user
+  before_action :authenticate_user
 
   def index
     if current_user
       @categories = current_user.categories
+      @total = current_user.expenses.all.total
       render 'index.json.jbuilder'
     else
-      @categories = Category.all
-      render 'index.json.jbuilder'
-      # render json: []
+      render json: []
     end
   end
 
@@ -18,8 +17,7 @@ class Api::CategoriesController < ApplicationController
                             budget: params[:budget],
                             user_id: current_user.id
                           )
-    @expenses_total = Expense.find_by(category_id: @category.id)
-    @over if @category.budget > @expenses_total
+
 
     if @category.save
       render 'show.json.jbuilder'

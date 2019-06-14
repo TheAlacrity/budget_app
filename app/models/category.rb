@@ -4,8 +4,8 @@ class Category < ApplicationRecord
   validates :name, presence: true
   validates :category_budget, presence: true  
 
-  def category_total
-    expenses.total
-  end
+  # def category_total
+  #   expenses.total
+  # end
 
 end

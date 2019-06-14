@@ -32,11 +32,11 @@ expense.save
 expense = Expense.new(name: "Expense 2", amount: 25.00, comment: "", user_id: user_1.id, category_id: category_3.id)
 expense.save
 
-expense = Expense.new(name: "Expense 3", amount: 9.13, comment: "", user_id: user_2.id, category_id: category_3.id)
+expense = Expense.new(name: "Expense 3", amount: 9.13, comment: "", user_id: user_2.id, category_id: category_1_b.id)
 expense.save
 
 expense = Expense.new(name: "Expense 4", amount: 40.00, comment: "", user_id: user_1.id, category_id: category_3.id)
 expense.save
 
-expense = Expense.new(name: "Expense 5", amount: 15.00, comment: "", user_id: user_2.id, category_id: category_2.id)
+expense = Expense.new(name: "Expense 5", amount: 15.00, comment: "", user_id: user_2.id, category_id: category_2_b.id)
 expense.save
