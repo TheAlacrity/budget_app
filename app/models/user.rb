@@ -11,5 +11,19 @@ class User < ApplicationRecord
     expenses.total
   end
 
+  def percentage(budget, total)
+    percent = (total/budget) * 100
+    "#{percent.to_i}%"
+  end
+
+  def over?(budget, total)
+    if total > budget
+      over = true
+    else
+      over = false
+    end
+    over
+  end
+
 end
 
