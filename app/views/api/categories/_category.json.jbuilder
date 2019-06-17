@@ -1,17 +1,20 @@
 json.id category.id
 json.name category.name
 json.category_budget category.category_budget
-json.category_total category.expenses_by_category_id(category.id).total
+json.category_spent category.expenses_by_category_id(category.id).total
 
-if category.category_budget < category.expenses_by_category_id(category.id).total
-  over = true
-else
-  over = false
-end
-json.over over
+
+
+
+
+json.percentage category.percentage(category.id)
+
+
+
+json.over? category.over?(category.id)
+
 
 json.user_id category.user_id
-json.testing @cat_over
 
 
 json.expenses do

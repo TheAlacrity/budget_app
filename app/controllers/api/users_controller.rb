@@ -4,8 +4,6 @@ class Api::UsersController < ApplicationController
     if current_user
       @user = current_user
       @total = current_user.expenses.all.total
-      @over = false
-      @over = true if @total > current_user.budget
       render 'index.json.jbuilder'
     else
       render json: []
