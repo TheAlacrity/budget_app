@@ -38,3 +38,21 @@ expense.save
 
 expense = Expense.new(name: "Savings", amount: 125.00, comment: "", user_id: user_1.id, category_id: category_4.id)
 expense.save
+
+expense = Expense.new(name: "Kingdom Come: Deliverance", amount: 60.00, comment: "", user_id: user_1.id, category_id: category_2.id)
+expense.save
+
+expense = Expense.new(name: "Sekiro: Shadows Die Twice", amount: 60.00, comment: "", user_id: user_1.id, category_id: category_2.id)
+expense.save
+
+expense = Expense.new(name: "Destiny 2", amount: 60.00, comment: "", user_id: user_1.id, category_id: category_2.id)
+expense.save
+
+expense = Expense.new(name: "Chipotle", amount: 12.33, comment: "", user_id: user_1.id, category_id: category_3.id)
+expense.save
+
+expense = Expense.new(name: "Sarpino's Pizza", amount: 9.13, comment: "", user_id: user_1.id, category_id: category_3.id)
+expense.save
+
+expense = Expense.new(name: "Birthday Gifts", amount: 163.10, comment: "", user_id: user_1.id, category_id: category_2.id)
+expense.save
